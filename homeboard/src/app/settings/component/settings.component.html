@@ -1,0 +1,6 @@
+<div class="board-container">
+    <div *ngFor='let board of boards' class="board mat-elevation-z4" matRipple (click)="setBoard(board.id)">
+        <div class="board-id">{{board.id}}</div>
+        <div class="board-name">{{board.name}}</div>
+    </div>
+</div>

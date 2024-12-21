@@ -1,0 +1,50 @@
+.abs-zero > div{
+    -webkit-transition: opacity 3s ease-in-out;
+    -moz-transition: opacity 3s ease-in-out;
+    -o-transition: opacity 3s ease-in-out;
+    transition: opacity 3s ease-in-out;
+}
+
+.full-height > .bg-image{
+    position: absolute;
+	top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: brightness(80%);
+}
+
+.partial-height > .bg-image{
+    position: absolute;
+	top:0;
+    left: 0;
+    right: 0;
+    bottom: 20vh !important;
+    height: 80vh !important;
+    filter: brightness(80%);
+}
+
+.bg-image.inactive{
+    opacity: 0;
+    background : no-repeat center/80% center fixed ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 8;
+}
+
+.bg-image.active
+{
+    opacity: 1;
+    background : no-repeat center/80% center fixed ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 9;
+}
+.bottom {
+    position: absolute;
+    bottom: 0;
+}

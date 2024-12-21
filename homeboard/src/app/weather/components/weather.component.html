@@ -1,0 +1,13 @@
+<div *ngIf='weather' class='weather' [class.thermostat]='hasThermostat'>
+  <div class='today'>
+    <app-today-forecast></app-today-forecast>
+  </div>
+  <div class='thermostat' *ngIf='hasThermostat'>
+    <app-thermostat></app-thermostat>
+  </div>
+  <div class='forecast'>
+    <app-week-forecast></app-week-forecast>
+  </div>
+</div>
+
+

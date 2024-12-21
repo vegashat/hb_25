@@ -1,0 +1,61 @@
+networks:
+  homeboard:
+    driver: bridge
+services:
+    database:
+        platform: linux/amd64
+        user: root
+        build: 
+          context: .
+          dockerfile: ./db/dockerfile
+        ports:  
+          - "1433:1433"
+        env_file:
+          - ./db/sqlserver.env
+        restart: always
+        volumes: 
+          - sqlsystem:/var/opt/mssql/
+          - sqldata:/var/opt/sqlserver/data/
+          - sqllog:/var/opt/sqlserver/log/
+          - sqlbackup:/var/opt/sqlserver/backup/
+    homeboard-api:
+        build:
+          context: ./HB.Api
+          dockerfile: Dockerfile
+        ports:
+          - "1777:5400"
+        depends_on:
+          - "database"
+        networks:
+          - homeboard
+        restart: always
+    homeboard-taskrunner:
+        build:
+          context: ./HBTaskRunner/HBTaskRunner
+          dockerfile: dockerfile
+        depends_on:
+          - "database"
+        restart: always
+        networks: 
+          - homeboard
+        volumes: 
+          - ./images:/Users/wcalbre1/_git/hb/images/
+    web:
+      build:
+        context: ./homeboard
+        dockerfile: Dockerfile
+      restart: always
+      depends_on:
+          - "database"
+      ports:
+        - "4001:80"
+
+volumes:
+    sqlsystem:
+    sqldata: 
+    sqllog: 
+    sqlbackup:
+    images: 
+
+
+

@@ -1,0 +1,21 @@
+<app-background></app-background>
+<div
+  [class.board]="displayWeather === true"
+  [class.board-no-weather]="displayWeather === false" *ngIf="settingsLoaded">
+  <div class='clock'>
+    <app-clock></app-clock>
+  </div>
+  <div class='date'>
+    <app-today></app-today>
+  </div>
+  <div class='moon'></div>
+  <div class='calendar'>
+    <app-calendar></app-calendar>
+  </div>
+  <div class='weather' *ngIf="displayWeather === true">
+    <app-weather></app-weather>
+  </div>
+</div>
+<div class='settings'>
+  <fa class='bright' name='cog'></fa>
+</div>

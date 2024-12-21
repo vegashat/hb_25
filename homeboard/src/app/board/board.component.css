@@ -1,0 +1,79 @@
+.board, .board-no-weather {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+}
+
+.board {
+  grid-template-areas: "clock clock date"
+                       "calendar calendar calendar"
+                       "weather weather weather" ;
+  grid-template-rows: .3fr 3fr 1fr .1fr;
+  grid-template-columns: 35% 18% 47%;
+}
+
+.board-no-weather {
+  grid-template-areas: "clock moon moon"
+                       "calendar calendar calendar";
+  grid-template-rows: .5fr 3fr 1fr;
+  grid-template-columns: 35% 18% 47%;
+}
+
+.center {
+  justify-self: stretch ;
+  align-self: stretch;
+}
+
+.clock {
+  z-index: 100;
+  grid-area: clock;
+  justify-self: start;
+  align-self:  start;
+}
+
+.date {
+  z-index: 100;
+  grid-area: date;
+}
+
+.moon {
+  grid-area: moon;
+}
+
+.calendar {
+  z-index: 100;
+  grid-area: calendar;
+}
+.board > .calendar {
+  margin-left: 5vw;
+}
+
+.board-no-weather > .calendar {
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  height: 20vh;
+  background-color: black;
+  width: 100%;
+}
+
+
+.weather {
+  z-index: 100;
+  grid-area: weather;
+  justify-self: stretch;
+  align-self: stretch;
+  margin-right: 2em;
+}
+
+.board > .weather {
+  margin-left: 2vw;
+}
+
+.settings {
+  z-index: 100;
+  grid-area: settings;
+  justify-self: stretch;
+  align-self: stretch;
+}

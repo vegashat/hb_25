@@ -1,0 +1,5 @@
+<div class="clock-container">
+  <span *ngIf="militaryTime == true" class="hour_min">{{currentDateTime | amDateFormat:'H:mm'}}</span>
+  <span *ngIf="militaryTime == false" class="hour_min">{{currentDateTime | amDateFormat:'h:mm'}}</span>
+  <span class="seconds">{{currentDateTime | amDateFormat:'ss'}}</span>
+</div>

@@ -1,0 +1,113 @@
+.calendar {
+  position: relative ;
+}
+
+.calendar > div {
+    -webkit-transition: opacity 2s ease-in-out;
+    -moz-transition: opacity 2s ease-in-out;
+    -o-transition: opacity 2s ease-in-out;
+    transition: opacity 2s ease-in-out;
+}
+
+.week-container {
+  position: absolute;
+	top:0;
+	right: 0;
+	bottom: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.inactive {
+  z-index: 9;
+  opacity: 0;
+}
+
+.active{
+  z-index: 10;
+  opacity: 1;
+}
+
+.day-container {
+  vertical-align: middle;
+}
+
+.day {
+  font-size: 45px;
+  text-transform: uppercase;
+  color: rgb(204, 204, 204);
+  margin-top: 25px;
+}
+
+.entry {
+  display: grid;
+  grid-template-areas: "hour minutes description"
+                       "hour ampm description"
+                       "hour location location";
+  grid-template-rows: auto;
+  grid-template-columns: 40px 40px 1fr;
+  margin-left: 1em;
+  margin-top: 5px;
+}
+
+.hour {
+  grid-area: hour;
+  font-size: 45px;
+  justify-self: center;
+  align-self: start;
+}
+
+.minutes, .ampm {
+  margin-left: .5em;
+  align-self: auto;
+  justify-self: center;
+}
+.minutes {
+  grid-area: minutes;
+  align-self: end;
+}
+
+.ampm {
+  grid-area: ampm;
+}
+
+.description {
+  grid-area: description;
+  font-size: 35px;
+  margin-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  align-self: center;
+}
+
+.location {
+  grid-area: location;
+  font-size: 35px;
+  color: rgb(204, 204, 204);
+}
+
+@media (max-width: 600px){
+  .entry {
+    grid-template-columns: 20px 20px 1fr;
+  }
+  .day {
+    font-size: 20px;
+    margin-top: 15px;
+  }
+  .hour {
+    font-size: 20px;
+  }
+  .minutes, .ampm {
+    font-size: 10px;
+  }
+  .description {
+    font-size: 15px;
+  }
+}

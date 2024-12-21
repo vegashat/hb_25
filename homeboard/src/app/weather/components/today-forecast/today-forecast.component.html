@@ -1,0 +1,39 @@
+<div class='forecast'>
+  <div class='current-condition'>
+    <div>
+      <span class="icon wi wi-wmo4680-{{weather.weatherCode}}"></span>
+    </div>
+  </div>
+  <div class="current-temp">
+      <div *ngIf="showFeels === false" class='temp'>
+        {{weather.currentTemp | number : '1.0-0'}}<sup>&deg;</sup>
+        <div class='feels'>Current Temp</div>
+      </div>
+      <div *ngIf="showFeels === true" class='temp'>
+        {{weather.feelsLike | number : '1.0-0'}}<sup>&deg;</sup>
+        <div class='feels'>Feels Like</div>
+      </div>
+  </div>
+  <div class='wind'> 
+      <span class=" wi wi-strong-wind"></span>
+      {{weather.windSpeed | number : '1.0-0'}} / {{weather.windGusts}} {{weather.windDirection}}
+  </div>
+  <div class='humidity'>
+      <span class=" wi wi-humidity"></span>
+      {{weather.humidity}}%
+  </div>
+  <div class='high'>
+    <!--<fa name='long-arrow-up'></fa>-->
+    H:{{weather.high| number : '1.0-0'}}
+  </div>
+  <div class='low'>
+    <!--<fa name='long-arrow-down'></fa>-->
+    L:{{weather.low | number : '1.0-0'}}
+  </div>
+  <div class='sunrise'>
+    <span class="wi wi-sunrise"></span> {{weather.sunrise | amDateFormat:'h:mm '}}
+  </div>
+  <div class='sunset'>
+    <span class="wi wi-sunset"></span> {{weather.sunset | amDateFormat:'h:mm '}}
+  </div>
+</div>

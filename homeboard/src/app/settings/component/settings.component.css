@@ -1,0 +1,29 @@
+
+.board-container {
+    background-color: white !important;
+    color: black;
+    -webkit-text-fill-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.board {
+    width: 80vw;
+    margin: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    cursor: pointer;
+    padding: 2vh;
+}
+
+.board-id {
+    place-self: center;
+    font-size: 10vh;
+}
+
+.board-name {
+    place-self: center;
+    font-size: 3vh;
+}

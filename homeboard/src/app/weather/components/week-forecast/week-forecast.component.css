@@ -1,0 +1,26 @@
+.container {
+  height: 100%;
+  width: 100%;
+}
+.forecast {
+  height: 100%;
+}
+.day, .condition {
+
+  font-size: 50px;
+}
+.high, .low {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px){
+
+  .day, .condition {
+    font-size: 120%;
+  }
+  .high, .low {
+    font-size: 80%;
+  }
+}
+

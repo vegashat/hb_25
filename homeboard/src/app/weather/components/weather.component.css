@@ -1,0 +1,40 @@
+.weather.thermostat {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "today thermostat forecast";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1.5fr 1fr 2fr;
+}
+
+.weather {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "today forecast";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1.5fr 3fr;
+}
+
+.today, .thermostat, .forecast {
+  justify-self: stretch;
+  place-self: center;
+}
+.forecast {
+  margin-left: 1em;
+}
+
+.today {
+  grid-area: today;
+}
+
+.thermostat {
+  grid-area:  thermostat;
+}
+
+.forecast {
+  height: 80%;
+  width: 100;
+  grid-area: forecast;
+  justify-self: stretch;
+}

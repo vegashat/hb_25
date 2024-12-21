@@ -1,0 +1,19 @@
+.today-container > div {
+  text-align: center;
+}
+
+.day {
+  font-size: 80px;
+}
+.month {
+  font-size: 40px;
+}
+
+@media (max-width: 600px){
+  .day {
+    font-size: 30px;
+  }
+  .month {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,26 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
+RUN \ 
+  apt update && \
+  apt install -y ca-certificates && \
+  update-ca-certificates
+
+WORKDIR /build
+
+COPY *.csproj . 
+# Copy the .csproj and restore as distinct layers
+RUN dotnet restore
+
+# Copy the remaining source code and build the application
+COPY . .
+RUN dotnet publish -c Release -o app
+COPY appsettings.json ./app/
+
+# Build the runtime image
+FROM mcr.microsoft.com/dotnet/runtime:8.0
+WORKDIR /app
+COPY --from=build /build/app .
+
+VOLUME ["/images"]
+
+ENTRYPOINT ["dotnet", "HBTaskRunner.dll"]

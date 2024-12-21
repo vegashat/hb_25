@@ -1,0 +1,16 @@
+<div class='container' *ngIf='weather' fxLayout='row' fxLayoutAlign='space-evenly center' >
+  <div class='forecast' *ngFor='let forecast of forecasts' fxLayout='column' fxLayoutAlign='space-evenly center'>
+    <div class='day'>{{forecast.date | amDateFormat:'ddd'}}</div>
+    <div class='condition'>
+      <span class="wi wi-wmo4680-{{forecast.weatherCode}}"></span>
+    </div>
+    <div class='high'>
+      <!--<fa name='long-arrow-up'></fa>-->
+      H:{{forecast.high | number : '1.0-0'}}
+    </div>
+    <div class='low'>
+      <!--<fa name='long-arrow-down'></fa>-->
+      L:{{forecast.low | number : '1.0-0'}}
+    </div>
+  </div>
+</div>

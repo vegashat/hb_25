@@ -1,0 +1,107 @@
+.forecast {
+  height: 100%;
+  display: grid;
+  grid-template-areas: "current-condition current-temp"
+                       "wind humidity"
+                       "high low"
+                       "sunrise sunset";
+  grid-template-rows: "30% 22% 22% 22%";
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2px;
+  row-gap: 3px;
+  font-size: 85%;
+  font-weight: 700;
+}
+
+.current-condition, .current-temp {
+  font-size: 100px;
+}
+.current-condition {
+  grid-area: current-condition;
+  justify-self: center;
+  align-self: center;
+}
+.current-temp {
+  grid-area: current-temp;
+  justify-self: center;
+  align-self: center;
+}
+
+.temp {
+  text-align: center;
+}
+.feels {
+  font-size: 20px;
+  text-align: left;
+  margin-top: -20px;
+  margin-left: 5px;
+  font-weight: 900;
+}
+
+.feels-like {
+  grid-area: feels-like;
+  place-self: center;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.wind {
+  grid-area: wind;
+}
+
+.humidity {
+  grid-area:  humidity;
+}
+.wind, .humidity {
+  place-self: center;
+  font-size: 35px;
+}
+
+.high, .low{
+  font-size: 60px;
+  place-self: start center;
+}
+.high{
+  grid-area: high;
+}
+.low {
+  grid-area: low;
+}
+
+.sunrise, .sunset {
+  font-size: 40px;
+  place-self: center;
+}
+.sunrise {
+  grid-area: sunrise;
+}
+.sunset {
+  grid-area:sunset;
+}
+
+
+@media (max-width: 600px){
+
+  .current-condition, .current-temp {
+    font-size: 40px;
+  }
+
+  .feels {
+    font-size: 8px;
+    text-align: left;
+    margin-top: 0;
+    margin-left: 5px;
+    font-weight: 900;
+  }
+  .wind, .humidity {
+    font-size: 12px;
+  }
+
+  .sunrise, .sunset {
+    font-size: 12px;
+  }
+
+  .high, .low {
+    font-size: 20px;
+  }
+}

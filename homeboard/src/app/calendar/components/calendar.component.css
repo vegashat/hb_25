@@ -1,0 +1,182 @@
+@media only screen 
+    and (min-device-width: 375px) 
+    and (min-device-height: 812px) 
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: portrait) { 
+    /* styles */
+  .day-name, .day-number {
+    font-size: 60px;
+  }
+  .entry {
+    grid-template-columns: 20px 20px 1fr;
+  }
+  .day {
+    font-size: 20px;
+    margin-top: 15px;
+  }
+  .hour {
+    font-size: 20px;
+  }
+  .minutes, .ampm {
+    font-size: 10px;
+  }
+  .description {
+    font-size: 15px;
+  }
+}
+.calendar {
+  position: relative ;
+}
+
+.calendar > div {
+    -webkit-transition: opacity 2s ease-in-out;
+    -moz-transition: opacity 2s ease-in-out;
+    -o-transition: opacity 2s ease-in-out;
+    transition: opacity 2s ease-in-out;
+}
+.full-calendar.week-container {
+  position: absolute;
+	top:0;
+	right: 0;
+	bottom: 0;
+  left: 0;
+
+  height: 100%;
+  widows: 100%;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bottom-calendar.week-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.inactive {
+  z-index: 9;
+  opacity: 0;
+  display: none;
+}
+
+.active{
+  z-index: 10;
+  opacity: 1;
+}
+
+.full-calendar .day-container {
+  vertical-align: middle;
+}
+
+.full-calendar .day {
+  font-size: 45px;
+  text-transform: uppercase;
+  color: rgb(204, 204, 204);
+  margin-top: 25px;
+}
+
+.bottom-calendar  .day-container {
+  display: flex;
+  flex-direction: column;
+  width: 19vw;
+  height: 100%;
+  margin: .5vw;
+}
+
+.day-name {
+  grid-area: day-name;
+  font-size: 40px;
+}
+
+.day-number {
+  grid-area: day-number;
+  font-size: 60px;
+  margin: 5px;
+}
+
+.entries {
+  grid-area: entries;
+}
+
+.day-name, .day-number {
+  width: 100%;
+  text-align: center;
+}
+
+.day {
+  text-transform: uppercase;
+  color: rgb(204, 204, 204);
+  margin-top: 25px;
+}
+
+.full-calendar  .entry {
+  display: grid;
+  grid-template-areas: "hour minutes description"
+                       "hour ampm description"
+                       "hour location location";
+  grid-template-rows: auto;
+  grid-template-columns: 40px 40px 1fr;
+  margin-left: 1em;
+  margin-top: 5px;
+}
+
+.bottom-calendar  .entry {
+  padding: .2em;
+  font-size: 1.2em;
+  margin-top: .3vw;
+  color: white;
+}
+
+.all-day {
+  background-color: #2634f186;
+}
+
+.full-calendar .hour {
+  font-size: 45px;
+}
+
+.hour {
+  grid-area: hour;
+  justify-self: center;
+  align-self: start;
+}
+
+.minutes, .ampm {
+  margin-left: .5em;
+  align-self: auto;
+  justify-self: center;
+}
+.minutes {
+  grid-area: minutes;
+  align-self: end;
+}
+
+.ampm {
+  grid-area: ampm;
+}
+
+.bottom-calendar .description {
+  grid-area: description;
+}
+
+.full-calendar .description {
+    grid-area: description;
+    font-size: 35px;
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    align-self: center;
+}
+
+.location {
+  grid-area: location;
+  color: rgb(204, 204, 204);
+}
+
+.circle {
+  background-color: #f00;
+}

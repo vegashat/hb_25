@@ -1,0 +1,35 @@
+<div id="calendar" class="calendar events hide transition" *ngIf="calendarDays">
+  <div *ngFor='let week of weekSplits' [class.active]='week == 0 ? !showFirstWeek : showFirstWeek'
+    [class.inactive]='week == 0 ? showFirstWeek : !showFirstWeek'>
+    <div *ngIf="!bottomCalendar" class="week-container full-calendar">
+      <div *ngFor='let number of daysToDisplay[week]' class="day-container">
+        <div *ngIf="calendarDays[number] != undefined">
+        <div class="day">{{  calendarDays[number].date | formatDay  }} <fa class='bright' name='child'
+            *ngIf='isFlintDay(calendarDays[number])'></fa>
+        </div>
+        <div *ngFor='let entry of filterOutFlintDays(calendarDays[number].entries)' class="entry">
+          <div class='hour'>{{entry.isAllDay ? '': entry.startTime | amDateFormat : 'hh'}}</div>
+          <div class='minutes'>{{entry.isAllDay ? 'All' : entry.startTime | amDateFormat : 'mm'}}</div>
+          <div class='ampm'>{{entry.isAllDay ? 'DAY' : entry.startTime | amDateFormat : 'A'}}</div>
+          <div class='description'>{{entry.description}}</div>
+          <div class='location'></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="bottomCalendar && (calendarLoaded | async)" class="week-container bottom-calendar">
+      <div *ngFor='let number of daysToDisplay[week]' class="day-container">
+        <div class="day-name">{{  calendarDays[number].date | amDateFormat:'ddd' }}</div>
+        <div class="day-number" [class.circle]="isToday(calendarDays[number].date)">
+          {{  calendarDays[number].date | amDateFormat:'DD' }}</div>
+        <div class="entries" *ngIf="calendarDays[number].entries !== null">
+          <div *ngFor='let entry of filterOutFlintDays(calendarDays[number].entries)' class="entry"
+            [class.all-day]="entry.isAllDay">
+            <span class='time'>{{entry.isAllDay ? '' : entry.startTime | amDateFormat : 'h:mma '}}</span>
+            <span class='description'>{{entry.description}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

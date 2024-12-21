@@ -1,0 +1,19 @@
+<div class='thermostat' *ngIf='thermostat'>
+  <span class='container' fxLayout='column' fxLayoutAlign="center" [class.heat]='heating' [class.cool]='cooling'>
+    <div fxLayout='column' fxLayoutAlign="space-evenly center">
+      <div class='icon'>
+        <fa name='home' [class.home-heat]='heating' [class.home-cool]='cooling'></fa>
+      </div>
+      <div class='home-temp'>
+        {{thermostat.ambientTemperature}}
+      </div>
+      <div class='adjusting-to' *ngIf='thermostatOn'>
+        {{thermostat.hvacState}} to {{thermostat.targetTemperature}}
+      </div>
+      <div class='humidity'>
+        <span class=" wi wi-humidity"></span>
+         {{thermostat.humidity}}%
+      </div>
+    </div>
+  </span>
+</div>

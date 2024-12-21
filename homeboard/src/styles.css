@@ -1,0 +1,18 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* You can add global styles to this file, and also import other style files */
+/* Add application styles & imports to this file! */
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  color: white;
+  background-color: black;
+  font-family : Roboto;
+  overflow: hidden;
+  font-weight: 500;
+  font-size: 1.1em;
+
+  -webkit-text-stroke: 1px rgb(44, 43, 43);
+  -webkit-text-fill-color: white;
+}

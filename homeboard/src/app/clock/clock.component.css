@@ -1,0 +1,24 @@
+.hour_min {
+  font-size: 120px;
+}
+.seconds {
+  font-size: 60px;
+  margin-top: 15px;
+}
+
+.hour_min, .seconds {
+  vertical-align: top;
+}
+.seconds {
+  display: inline-block;
+}
+
+@media (max-width: 600px){
+  .hour_min {
+    font-size: 45px;
+  }
+  .seconds {
+    margin-top: 6px;
+    font-size: 25px;
+  }
+}

@@ -1,0 +1,8 @@
+<div id="content" class="abs-zero" *ngIf='image_1_url' [class.partial-height]="partialHeight" [class.full-height]="!partialHeight">
+  <div id="background-underlay-1" class='bg-image' [class.active]='firstImageActive'
+    [class.inactive]='!firstImageActive' [style.background-image]="getSafeUrl(image_1_url)">
+  </div>
+  <div id="background-underlay-2" class='bg-image' [class.inactive]='firstImageActive'
+    [class.active]='!firstImageActive' [style.background-image]="getSafeUrl(image_2_url)">
+  </div>
+</div>

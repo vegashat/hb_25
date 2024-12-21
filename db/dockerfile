@@ -1,0 +1,27 @@
+# Base OS layer: Latest Ubuntu LTS
+FROM mcr.microsoft.com/mssql/server:2022-latest
+
+USER root
+
+RUN mkdir -p /tmp
+
+COPY ./db/entrypoint.sh /tmp/
+COPY ./db/restore.sh /tmp/
+COPY ./db/hb.bak /tmp/
+
+# creating directories
+RUN mkdir /var/opt/sqlserver
+RUN mkdir /var/opt/sqlserver/data
+RUN mkdir /var/opt/sqlserver/log
+RUN mkdir /var/opt/sqlserver/backup
+
+RUN chmod 777 /tmp
+RUN chmod 777 /tmp/hb.bak
+RUN chmod 777 /tmp/entrypoint.sh 
+RUN chmod 777 /tmp/restore.sh 
+
+#USER mssql
+
+# starting SQL Server
+ENTRYPOINT ["/tmp/entrypoint.sh"]
+# CMD [ "/opt/mssql/bin/sqlservr" ]
